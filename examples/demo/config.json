@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "timezone": "Europe/Madrid",
+  "profile_label": "Estudiante de ejemplo · datos ficticios",
+  "storage_key": "mi-grado-demo-v1",
+  "vaults": {
+    "degree": "../../runtime/demo/Grado demo",
+    "hub": "../../runtime/demo/Centro demo",
+    "projects": "../../runtime/demo/Proyectos demo"
+  },
+  "captures": "06 Registro de clase/Capturas",
+  "runtime": "../../runtime/demo/technical",
+  "panel_file": "../../runtime/demo/panel-data.json"
+}

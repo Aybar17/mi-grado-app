@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "title": "Mi semana de ejemplo",
+  "subtitle": "Demostración ficticia: fichas, intentos, capturas y contexto para estudiar.",
+  "weekLabel": "Plan de ejemplo pendiente de preparar",
+  "checked": null,
+  "memoryReviewedAt": null,
+  "subjects": [
+    {
+      "id": "logica",
+      "name": "Lógica de ejemplo",
+      "short": "Lógica",
+      "note": "01 Asignaturas/Lógica/Lógica.md",
+      "color": "#2c8069",
+      "level": "Demo: primera comprobación pendiente",
+      "studied": ["Se ha preparado una ficha ficticia sobre condiciones."],
+      "covered": ["Condiciones y decisiones."],
+      "evidence": ["Ejemplo sintético; no describe aprendizaje de una persona."],
+      "checkpoint": "Explicar cuándo se evalúa la segunda condición de un AND.",
+      "nextPractice": "Elegir un ejercicio propio y su enunciado.",
+      "stage": 1,
+      "tutorMode": "diagnostico",
+      "materials": ["Enunciado ficticio: si A es falso, ¿se evalúa B en A AND B?"]
+    },
+    {
+      "id": "datos",
+      "name": "Datos de ejemplo",
+      "short": "Datos",
+      "note": "01 Asignaturas/Datos/Datos.md",
+      "color": "#b0782a",
+      "level": "Demo: intento declarado con ayuda",
+      "studied": ["La ficha distingue una explicación de una respuesta propia."],
+      "covered": ["Media y mediana."],
+      "evidence": ["Todos los valores de esta demo son ficticios."],
+      "checkpoint": "Comparar media y mediana de [2, 3, 10] sin consultar la respuesta.",
+      "nextPractice": "Guardar el intento con la ayuda que se recibió.",
+      "stage": 2,
+      "tutorMode": "diagnostico",
+      "materials": ["Ejercicio sintético sobre tres números."]
+    },
+    {
+      "id": "sistemas",
+      "name": "Sistemas de ejemplo",
+      "short": "Sistemas",
+      "note": "01 Asignaturas/Sistemas/Sistemas.md",
+      "color": "#4f70b2",
+      "level": "Demo: prueba propia por comprobar",
+      "studied": ["Se ha preparado un recorrido ficticio de entradas y salidas."],
+      "covered": ["Validación de resultados."],
+      "evidence": ["Una ejecución del tutor no acredita autonomía."],
+      "checkpoint": "Predecir una salida, ejecutar el ejemplo y explicar la diferencia.",
+      "nextPractice": "Elegir una prueba mínima.",
+      "stage": 1,
+      "tutorMode": "bloques",
+      "materials": ["Guía sintética: entrada → operación → salida."]
+    }
+  ],
+  "week": [],
+  "changes": [],
+  "deadlines": [],
+  "coverage": [
+    {"title": "Demo local", "status": "Datos ficticios", "detail": "Se inicia sin bóvedas externas ni cuentas de servicios."},
+    {"title": "Plataforma docente", "status": "Sin conexión", "detail": "No hay integración automática con plataformas docentes."},
+    {"title": "Chats", "status": "Contexto manual", "detail": "Preparar y copiar un texto no abre ni lee conversaciones."}
+  ],
+  "alerts": ["Esta demostración no contiene entregas ni resultados académicos reales."],
+  "priorityTitle": "Probar una captura ficticia",
+  "priorityDetail": "Abre Registrar avance, anota un intento de ejemplo y comprueba su enlace al diario.",
+  "sessionTemplate": "Asignatura: [nombre]\nObjetivo: [ejercicio]\nTiempo: [minutos]\nFuente: [enunciado]\nÚltimo intento y ayuda: [detalle]\nSiguiente paso: esperar mi intento antes de corregir.",
+  "methods": [
+    {"title": "Intento y evidencia", "application": "Registrar lo que se hizo, la ayuda recibida y una siguiente comprobación."},
+    {"title": "Recuperar la fuente", "application": "Leer la ficha vigente y confirmar el enunciado antes de practicar."}
+  ]
+}

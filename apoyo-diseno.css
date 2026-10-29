@@ -1,0 +1,220 @@
+/* Apoyo de diseño · 08/10/2026. Propuesta aislada, sin validación visual.
+ * Integrar DESPUÉS del CSS base Y del estilo dinámico panel-team-ui-style.
+ * Hooks opcionales, descritos en secundario-diseno.md:
+ * .nav-secondary, .nav-secondary-links, .team-filter-menu,
+ * .team-domain-summary y data-team-group=head|reviewer|support|other.
+ * Nunca ocultar registros por nth-child ni convertir estados en puntuación.
+ */
+:root {
+  --study-focus: #235b45;
+  --study-muted: #536459;
+  --study-field-border: #748b7c;
+}
+
+/* La acción académica conserva el énfasis; las vistas de proyecto se agrupan. */
+.nav button[data-view="agentes"],
+.nav button[data-view="equipo"],
+.nav button[data-view="objetivos"] {
+  font-weight: 500;
+}
+.nav button.active:is([data-view="agentes"], [data-view="equipo"], [data-view="objetivos"]) {
+  background: var(--mint, #e4efe4);
+  color: var(--green, #235b45);
+  box-shadow: inset 0 0 0 1px var(--green, #235b45);
+}
+.nav-secondary {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line, #dce3d9);
+  min-width: 0;
+}
+.nav-secondary > summary {
+  min-height: 44px;
+  padding: 10px 8px;
+  color: var(--study-muted);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.nav-secondary-links { display: grid; gap: 6px; }
+
+/* Los anillos siguen siendo visibles sobre superficies claras y sobre el hero. */
+.app :is(button, a, summary, input, select, textarea):focus-visible {
+  outline: 3px solid var(--study-focus);
+  outline-offset: 3px;
+}
+.app .hero :is(button, a):focus-visible {
+  outline-color: #fff;
+  box-shadow: 0 0 0 5px #102e21;
+}
+.nav button,
+#semana .btn,
+#sesion .btn,
+#agentes .btn,
+#equipo .btn,
+#objetivos .btn {
+  min-height: 44px;
+}
+
+/* El registro del equipo permanece secundario y admite textos y rutas largos. */
+:is(#agentes, #equipo, #objetivos) .team-shell {
+  min-width: 0;
+  max-width: 100%;
+}
+:is(#agentes, #equipo, #objetivos) :is(.team-source, .team-meta, .team-edited, .team-empty) {
+  font-size: .875rem;
+  line-height: 1.55;
+  color: var(--study-muted);
+  overflow-wrap: anywhere;
+}
+:is(#agentes, #equipo, #objetivos) :is(.team-role, .team-goal, .team-domain-summary) {
+  min-width: 0;
+  padding: 20px;
+}
+:is(#agentes, #equipo, #objetivos) :is(h2, h3, p, li, dt, dd, .badge) {
+  overflow-wrap: anywhere;
+}
+:is(#agentes, #equipo, #objetivos) .team-role h3 { font-size: 1.125rem; }
+:is(#agentes, #equipo, #objetivos) .team-role .badge { font-size: .8125rem; }
+:is(#agentes, #equipo, #objetivos) .team-role dl {
+  grid-template-columns: minmax(7rem, .4fr) minmax(0, 1fr);
+  font-size: .875rem;
+}
+:is(#agentes, #equipo, #objetivos) .team-overview {
+  gap: 12px;
+  margin: 16px 0;
+}
+:is(#agentes, #equipo, #objetivos) .team-overview b { font-size: 1.125rem; }
+:is(#agentes, #equipo, #objetivos) .team-overview span {
+  font-size: .875rem;
+  color: var(--study-muted);
+}
+
+/* Jerarquía por rol con etiqueta textual existente; el color no codifica éxito. */
+:is(#agentes, #equipo) .team-role[data-team-group="head"] {
+  border-left: 4px solid var(--green, #235b45);
+}
+:is(#agentes, #equipo) .team-role[data-team-group="reviewer"] {
+  border-left: 4px solid #755b29;
+}
+:is(#agentes, #equipo) .team-role[data-team-group="support"] {
+  border-left: 4px solid var(--study-field-border);
+}
+:is(#agentes, #equipo, #objetivos) .team-shell summary {
+  min-height: 44px;
+  padding: 10px 0;
+  line-height: 1.5;
+}
+:is(#agentes, #equipo, #objetivos) .team-review {
+  border-left-color: #755b29;
+  padding-left: 12px;
+}
+:is(#agentes, #equipo, #objetivos) .team-review p {
+  font-size: .875rem;
+  line-height: 1.55;
+}
+
+/* El menú de filtros es details nativo. No es modal ni precisa captura de foco. */
+:is(#agentes, #equipo) .team-filter-menu {
+  margin: 16px 0;
+  padding: 0 14px;
+  border: 1px solid var(--study-field-border);
+  border-radius: 8px;
+  background: var(--paper, #fff);
+}
+:is(#agentes, #equipo) .team-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 12px;
+  align-items: end;
+}
+:is(#agentes, #equipo) .team-tools label { min-width: 0; }
+:is(#agentes, #equipo) .team-tools select,
+:is(#agentes, #equipo) .team-composer textarea {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  border-color: var(--study-field-border);
+  font-size: 1rem;
+}
+:is(#agentes, #equipo) .team-tools select { min-height: 44px; }
+:is(#agentes, #equipo) .team-tools > .btn { justify-self: start; }
+:is(#agentes, #equipo) .team-composer textarea {
+  min-height: 18rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+:is(#agentes, #equipo, #objetivos) .team-actions { gap: 10px; }
+:is(#agentes, #equipo, #objetivos) .team-actions .btn { white-space: normal; }
+
+/* 900 px horizontal: evitar una lateral de altura fija que recorte la navegación. */
+@media (max-width: 900px) {
+  .app { display: block; }
+  .side {
+    position: relative;
+    height: auto;
+    padding: 14px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line, #dce3d9);
+  }
+  .side > .eyebrow, .side-foot { display: none; }
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+    margin-top: 12px;
+  }
+  .nav button {
+    min-width: 0;
+    white-space: normal;
+    line-height: 1.35;
+    padding: 10px;
+  }
+  .nav .ico { display: none; }
+  .nav > .eyebrow, .nav-secondary { grid-column: 1 / -1; }
+  .nav-secondary { margin-top: 4px; padding-top: 4px; }
+  .nav-secondary-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-bottom: 6px;
+  }
+  main { padding: 24px 18px 50px; }
+  :is(#agentes, #equipo, #objetivos) :is(.team-roles, .team-goals) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 320 px: una dirección de lectura, controles completos, rutas sin recorte. */
+@media (max-width: 560px) {
+  .side { padding: 12px; }
+  .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main { padding: 20px 12px 40px; }
+  .hero .btn { max-width: 100%; white-space: normal; }
+  :is(#agentes, #equipo, #objetivos) :is(.team-role, .team-goal, .team-domain-summary) {
+    padding: 16px;
+  }
+  :is(#agentes, #equipo, #objetivos) :is(.team-role dl, .team-tools) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  :is(#agentes, #equipo, #objetivos) .team-role dd { margin-bottom: 8px; }
+  :is(#agentes, #equipo, #objetivos) .team-overview { grid-template-columns: minmax(0, 1fr); }
+  :is(#agentes, #equipo, #objetivos) .team-overview .card { padding: 12px 16px; }
+  :is(#agentes, #equipo, #objetivos) .team-overview b { min-width: 2ch; }
+  :is(#agentes, #equipo, #objetivos) .team-actions .btn { width: 100%; }
+  :is(#agentes, #equipo, #objetivos) .team-role .row { gap: 8px; }
+  #toast { left: 12px; right: 12px; bottom: 12px; max-width: none; }
+}
+
+@media (forced-colors: active) {
+  .app :is(button, a, summary, input, select, textarea):focus-visible {
+    outline-color: Highlight;
+  }
+  .app .hero :is(button, a):focus-visible { outline-color: Highlight; box-shadow: none; }
+}
+@media print {
+  :is(#agentes, #equipo) .team-filter-menu { display: none; }
+}
+
+#modelGuide label { display: block; min-width: 0; }
+#modelGuide select { width: 100%; max-width: 100%; min-width: 0; }
+
+.usage-list{display:grid;gap:14px}.usage-row small{display:block;overflow-wrap:anywhere}.usage-track{background:#edf0ea;border-radius:8px;height:11px;margin:8px 0}.usage-track>span{display:block;background:#235b45;height:100%;border-radius:8px;overflow:hidden}.usage-track i{display:block;background:#a8c9a5;height:100%}.reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.reference-grid article{padding:12px;border:1px solid #dce3d9;border-radius:8px}.reference-grid p,.reference-grid small{font-size:13px}.nav-secondary-links .nav-secondary{display:none}@media(max-width:700px){.reference-grid{grid-template-columns:1fr}.nav-secondary{margin:0;padding:0;border:0}.nav-secondary>summary{white-space:nowrap}.nav-secondary-links{display:flex}.nav-secondary[open]{min-width:230px}}

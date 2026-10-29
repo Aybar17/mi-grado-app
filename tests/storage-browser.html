@@ -1,0 +1,40 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Mi grado · prueba aislada de guardado</title>
+<script src="/app/flujo-estudio.js"></script><script src="/app/core.js"></script><script src="/app/storage.js"></script>
+<style>body{max-width:850px;margin:40px auto;padding:20px;font:17px/1.6 system-ui}button{padding:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.ok{color:#235b45}.error{color:#a11}</style>
+<h1>Prueba aislada de guardado</h1><p>Solo para un origen de desarrollo nuevo con datos ficticios. La prueba se detiene si encuentra un cuaderno previo. Simula un fallo de cuota durante una transacción real; no llena el disco ni cambia permisos.</p>
+<button id="run">Comprobar cuota, recuperación, pestaña antigua y migración</button><pre id="result" role="status">Sin ejecutar.</pre>
+<script>
+'use strict';
+document.querySelector('#run').addEventListener('click',async()=>{
+  const output=document.querySelector('#result'),button=document.querySelector('#run');button.disabled=true;
+  const checks=[],assert=(value,label)=>{if(!value)throw Error(label);checks.push(label);};
+  let db;
+  try{
+    db=await BookStorage.open();if(await BookStorage.load(db))throw Error('Este origen ya contiene un cuaderno. Usa un servidor de prueba nuevo; no se han sustituido datos.');
+    let book=GradeBook.newBook('Cuaderno ficticio original');book.subjects=[{id:'subject-storage01',name:'Datos ficticios',topics:[],archived:false}];
+    book=GradeBook.addTopic(book,'subject-storage01','Tema original','Texto ficticio intacto.');book=await BookStorage.save(db,book,null);
+    const before=JSON.stringify(book),next={...book,label:'Este cambio debe fallar'};
+    const original=IDBObjectStore.prototype.put;let error;
+    try{
+      IDBObjectStore.prototype.put=function(value,key){if(this.name==='books'&&key==='current')throw new DOMException('Cuota ficticia','QuotaExceededError');return original.apply(this,arguments);};
+      try{await BookStorage.save(db,next,book,'before-topic-update');}catch(caught){error=caught;}
+    }finally{IDBObjectStore.prototype.put=original;}
+    assert(error?.message.includes('No queda espacio'),'El fallo de cuota presenta una instrucción comprensible.');
+    assert(JSON.stringify(await BookStorage.load(db))===before,'El cuaderno anterior sigue intacto tras el fallo.');
+    assert((await BookStorage.history(db)).length===0,'La transacción fallida tampoco deja una copia histórica incompleta.');
+    const recovered=await BookStorage.save(db,{...book,label:'Cuaderno ficticio recuperado'},book,'before-topic-update');
+    const history=await BookStorage.history(db);
+    assert(recovered.label==='Cuaderno ficticio recuperado'&&history.length===1&&JSON.stringify(history[0].book)===before,'Un nuevo intento guarda el cuaderno y su copia anterior completos.');
+    let stale;
+    try{await BookStorage.save(db,{...book,label:'No pisar la versión nueva'},book,true);}catch(caught){stale=caught;}
+    assert(stale?.message.includes('Otra pestaña')&&(await BookStorage.load(db)).label===recovered.label&&(await BookStorage.history(db)).length===1,'Una revisión antigua no modifica el cuaderno ni sus copias.');
+    const legacy=structuredClone(recovered);legacy.version=4;legacy.rev++;
+    for(const subject of legacy.subjects)for(const topic of subject.topics)delete topic.origin;
+    await new Promise((resolve,reject)=>{const tx=db.transaction('books','readwrite');tx.objectStore('books').put(legacy,'current');tx.oncomplete=resolve;tx.onabort=()=>reject(tx.error);});
+    const upgraded=await BookStorage.load(db),copies=await BookStorage.history(db),old=copies.find(c=>c.reason==='before-upgrade');
+    assert(upgraded.version===5&&JSON.stringify(old?.book)===JSON.stringify(legacy)&&upgraded.subjects[0].topics[0].content==='Texto ficticio intacto.','La migración conserva el texto y la copia original en la misma transacción.');
+    output.className='ok';output.textContent=JSON.stringify({ok:true,checks},null,2);
+  }catch(error){output.className='error';output.textContent=JSON.stringify({ok:false,checks,error:error.message},null,2);}
+  finally{db?.close();}
+});
+</script></html>

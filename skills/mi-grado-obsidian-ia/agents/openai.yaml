@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mi grado · Obsidian y mi IA"
+  short_description: "Estudiar y guardar avances con tus notas Obsidian"
+  default_prompt: "Usa $mi-grado-obsidian-ia para retomar mi estudio con esta nota y preparar un avance revisable."

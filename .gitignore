@@ -1,0 +1,152 @@
+# Lista de publicación explícita: todo lo demás queda fuera del repositorio.
+*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/AGENTS.md
+!/ATTRIBUTION.md
+!/config.example.json
+!/abrir_panel.py
+!/configuracion.py
+!/generar_panel.py
+!/horario.py
+!/actualizar_panel.py
+!/puente_memoria.py
+!/cuaderno_web.py
+!/validar_cuaderno.py
+!/referencias.py
+!/rutas.py
+!/materiales-ui.js
+!/intercambio_web.py
+!/intercambio-ui.js
+!/tests/test_web_roundtrip.py
+!/tests/storage-browser.html
+!/tests/test_references.py
+!/tests/test_paths.py
+!/flujo-estudio.js
+!/interfaz.js
+!/tests/test_web_transfer.py
+!/persistencia_capturas.py
+!/memoria.py
+!/panel-template.html
+!/tests/
+!/tests/test_smoke.py
+!/tests/test_horario.py
+!/examples/
+!/examples/demo/
+!/examples/demo/config.json
+!/examples/demo/panel.json
+!/examples/demo/notes/
+!/examples/demo/notes/degree/
+!/examples/demo/notes/degree/01 Asignaturas/
+!/examples/demo/notes/degree/01 Asignaturas/Lógica/
+!/examples/demo/notes/degree/01 Asignaturas/Lógica/Lógica.md
+!/examples/demo/notes/degree/01 Asignaturas/Datos/
+!/examples/demo/notes/degree/01 Asignaturas/Datos/Datos.md
+!/examples/demo/notes/degree/01 Asignaturas/Sistemas/
+!/examples/demo/notes/degree/01 Asignaturas/Sistemas/Sistemas.md
+!/examples/demo/notes/hub/
+!/examples/demo/notes/hub/Inicio.md
+!/examples/demo/notes/projects/
+!/examples/demo/notes/projects/Proyecto de ejemplo.md
+!/.github/
+!/.github/workflows/
+!/.github/workflows/smoke.yml
+!/.github/workflows/pages.yml
+# El coordinador incorpora aquí el procedimiento del repositorio.
+!/.agents/
+!/.agents/skills/
+!/.agents/skills/mi-grado-github/
+!/.agents/skills/mi-grado-github/SKILL.md
+!/.agents/skills/mi-grado-github/references/
+!/.agents/skills/mi-grado-github/references/*.md
+# Prohibiciones explícitas aun ante ampliaciones futuras de la lista.
+/runtime/
+/config.local.json
+/.env*
+**/__pycache__/
+*.pyc
+*.log
+*.lock
+*.tmp
+**/panel.html
+**/auditoria-final.json
+
+!/extension_panel.py
+!/team-ui.js
+!/panel-extra.js
+!/modelos.json
+!/tests/test_extension.py
+!/tests/frontend.cjs
+!/examples/demo/notes/hub/30 Áreas/
+!/examples/demo/notes/hub/30 Áreas/Objetivos/
+!/examples/demo/notes/hub/30 Áreas/Objetivos/Objetivos.md
+
+!/apoyo-diseno.css
+!/launcher_local.py
+!/docs/
+!/docs/*.md
+!/equipo.example.json
+!/perfiles.py
+!/escritorio.py
+!/conexiones.py
+!/conexiones-ui.js
+!/Abrir Mi grado.pyw
+!/Mi grado.spec
+!/empaquetar_windows.py
+!/requirements-build.txt
+!/tests/test_distribution.py
+!/tests/test_connections.py
+!/identidad.css
+!/assets/
+!/assets/mi-grado.svg
+!/assets/mi-grado.ico
+!/assets/mi-grado.png
+!/docs/imagenes/
+!/docs/imagenes/panel.png
+!/gestion.py
+!/copias.py
+!/gestion-ui.js
+!/tests/test_management.py
+!/tests/test_backups.py
+!/web/
+!/web/index.html
+!/web/vercel.json
+!/CONTRIBUTING.md
+!/.github/ISSUE_TEMPLATE/
+!/.github/ISSUE_TEMPLATE/*.yml
+!/preparar_web.py
+!/LICENSE
+!/licenses/
+!/licenses/tcl-8.6.15.txt
+
+!/docs/imagenes/cuaderno.png
+!/empaquetar_portable.py
+!/empaquetar_web.py
+!/web/app/
+!/web/app/*.html
+!/web/app/*.css
+!/web/app/*.js
+!/web/app/*.webmanifest
+!/web/app/*.md
+!/skills/
+!/skills/mi-grado-obsidian-ia/
+!/skills/mi-grado-obsidian-ia/SKILL.md
+!/skills/mi-grado-obsidian-ia/LICENSE
+!/skills/mi-grado-obsidian-ia/agents/
+!/skills/mi-grado-obsidian-ia/agents/openai.yaml
+!/skills/mi-grado-obsidian-ia/references/
+!/skills/mi-grado-obsidian-ia/references/*.md
+!/skills/mi-grado-obsidian-ia/scripts/
+!/skills/mi-grado-obsidian-ia/scripts/puente_obsidian.py
+!/skills/mi-grado-obsidian-ia/scripts/rutas.py
+!/skills/mi-grado-obsidian-ia/scripts/validar_cuaderno.py
+!/tests/test_skill_bridge.py
+!/tests/web-core.cjs
+
+!/docs/imagenes/banner.svg
+!/docs/imagenes/social-preview.png
+!/docs/imagenes/planificar.png
+!/docs/imagenes/registrar.png
+!/docs/imagenes/retomar.png
+!/docs/imagenes/demo.gif

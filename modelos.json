@@ -1,0 +1,23 @@
+{
+  "checked": "2026-10-08",
+  "scope": "Recomendaciones para seleccionar en Codex/Work; dependen de las opciones disponibles en tu cuenta. No cambian el modelo de este chat ni arrancan agentes.",
+  "recommendations": [
+    {"id":"captura","task":"Anotar clase, ordenar datos o resumir una nota","model":"GPT-6 Luna","effort":"Light / Low para extracción simple; High si hay que contrastar campos","why":"Tarea delimitada con fuente y formato claros. Un agente suele bastar; comprobar el guardado sigue siendo obligatorio."},
+    {"id":"estudio","task":"Repasar y hacer ejercicios conmigo","model":"GPT-6.1 Sol","effort":"Medium; High cuando el razonamiento matemático lo requiera","why":"Una idea, tu intento y una comprobación. Más intensidad no sustituye el enunciado oficial ni demuestra que lo hayas entendido."},
+    {"id":"interfaz","task":"Mejorar una pantalla o una función del panel","model":"GPT-6.1 Sol","effort":"High; Extra High para un sistema de vistas conectado","why":"Implementar, verificar el flujo real y revisar estados. Para un cambio pequeño, un responsable y una revisión acotada."},
+    {"id":"fiabilidad","task":"Investigar pérdidas de datos, concurrencia o arquitectura","model":"GPT-6.1 Sol / GPT-6 Astra","effort":"Extra High en Sol; Medium o High en Astra según dificultad","why":"Dar casos reproducibles, límites y pruebas. Comparar calidad antes de escalar al modelo más exigente; reservarlo para decisiones difíciles."},
+    {"id":"producto","task":"Replantear el producto y preparar un posible lanzamiento","model":"GPT-6.1 Sol / GPT-6 Astra","effort":"Medium; aumentar si hay fuentes contradictorias","why":"Separar investigación, diseño y objeción independiente. Exigir evidencia de utilidad antes de añadir infraestructura o promesas comerciales."},
+    {"id":"equipo","task":"Revisión amplia por un equipo de agentes","model":"GPT-6.1 Sol","effort":"Medium como punto de partida; ajustar cada encargo","why":"Dividir por archivos o preguntas independientes, compartir solo el contexto necesario y usar réplicas después del primer resultado. Max/Ultra no son necesarios para cada sesión."}
+  ],
+  "rates": [
+    {"model":"GPT-6 Luna","input":0.1,"cached":0.01,"output":0.5,"url":"https://developers.openai.com/api/docs/models/gpt-6-luna"},
+    {"model":"GPT-6.1 Sol","input":2,"cached":0.1,"output":10,"url":"https://developers.openai.com/api/docs/models/gpt-6.1-sol"},
+    {"model":"GPT-6 Astra","input":10,"cached":1,"output":50,"url":"https://developers.openai.com/api/docs/models/gpt-6-astra"}
+  ],
+  "rateScope":"Simulación API en USD por millón de tokens, texto, Standard, solicitud con ≤272K tokens de entrada. Sin herramientas, escrituras de caché, regionalización ni modo Fast. No es la factura de Plus. La salida incluye razonamiento. Tarifas verificadas el 08/10/2026; comprobarlas antes de contratar.",
+  "sources":[
+    {"title":"Selección de modelos","url":"https://developers.openai.com/api/docs/guides/model-selection"},
+    {"title":"Modelos en Codex y Work","url":"https://learn.chatgpt.com/docs/models?surface=app"},
+    {"title":"Uso de tokens de razonamiento","url":"https://developers.openai.com/api/docs/guides/reasoning"}
+  ]
+}

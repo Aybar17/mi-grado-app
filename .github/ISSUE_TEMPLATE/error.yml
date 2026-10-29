@@ -1,0 +1,31 @@
+name: Error al usar Mi grado
+description: Cuenta el paso que falló usando un ejemplo ficticio.
+title: "[Error] "
+body:
+  - type: markdown
+    attributes:
+      value: "No adjuntes apuntes, copias del cuaderno, credenciales ni conversaciones personales. Usa datos ficticios."
+  - type: input
+    id: version
+    attributes:
+      label: Versión de Mi grado, sistema y navegador
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: "1. Abrí… 2. Elegí… 3. Pulsé…"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Qué esperabas y qué ocurrió
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Mensaje de error y posibilidad de recuperar el trabajo
+      description: Indica si pudiste volver a abrir y encontrar tu registro. Revisa cualquier captura antes de compartirla.

@@ -1,0 +1,21 @@
+name: Proponer una mejora
+description: Explica la tarea de estudio que quieres facilitar.
+title: "[Mejora] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Qué tarea te cuesta ahora
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Qué cambiarías
+    validations:
+      required: true
+  - type: textarea
+    id: check
+    attributes:
+      label: Cómo comprobaríamos que ayuda
+      description: Un recorrido concreto, con ejemplos ficticios y sin promesas de notas.
