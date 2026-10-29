@@ -1,4 +1,6 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const appHtml=fs.readFileSync('web/app/index.html','utf8');
+assert(!/<base\s+href=["']\//i.test(appHtml), 'La app debe funcionar en subcarpetas, como GitHub Pages');
 const template=fs.readFileSync('panel-template.html','utf8');
 for(const match of template.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)){
   if(!match[1].includes('application/json')&&!match[2].startsWith('__'))new vm.Script(match[2]);
