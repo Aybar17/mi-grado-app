@@ -49,7 +49,7 @@ def build_portable(version):
     for name in ['README.md','ATTRIBUTION.md','CONTRIBUTING.md','LICENSE']:
         shutil.copyfile(ROOT/name,folder/name)
     for relative in ['docs/INICIO.md','docs/HOJA_DE_RUTA.md','docs/PILOTO.md',
-                     'docs/imagenes/banner.svg','docs/imagenes/social-preview.png','docs/imagenes/planificar.png','docs/imagenes/registrar.png','docs/imagenes/retomar.png','docs/imagenes/demo.gif',
+                     'docs/imagenes/banner.svg','docs/imagenes/social-preview.png','docs/imagenes/social-preview-portada.png','docs/imagenes/planificar.png','docs/imagenes/registrar.png','docs/imagenes/retomar.png','docs/imagenes/demo.gif',
                      'docs/DESARROLLO.md',
                      'skills/mi-grado-obsidian-ia/references/primer-uso.md',
                      'docs/imagenes/panel.png','docs/imagenes/cuaderno.png','assets/mi-grado.svg']:

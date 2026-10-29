@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/imagenes/banner.svg" alt="Mi grado: organiza qué estudiar y retoma donde lo dejaste" width="100%"></p>
+<p align="center"><img src="docs/imagenes/social-preview-portada.png" alt="Mi grado: lo que estudias, en su sitio" width="100%"></p>
 
 <p align="center">
 <a href="https://github.com/Aybar17/mi-grado-app/actions/workflows/smoke.yml"><img alt="Pruebas de GitHub Actions" src="https://github.com/Aybar17/mi-grado-app/actions/workflows/smoke.yml/badge.svg"></a>

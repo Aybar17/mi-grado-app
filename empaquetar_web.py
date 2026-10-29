@@ -61,16 +61,21 @@ def build():
     (app/'sw.js').write_text((app/'sw.js').read_text(encoding='utf-8').replace('mi-grado-web-v1','mi-grado-web-'+stamp),encoding='utf-8')
     # El sitio es estático. No incluye los endpoints ni perfiles de la aplicación Windows.
     shutil.copyfile(ROOT/'web/index.html',site/'index.html')
+    shutil.copyfile(ROOT/'web/landing.css',site/'landing.css')
     (site/'assets').mkdir(exist_ok=True)
     shutil.copyfile(ROOT/'assets/mi-grado.svg',site/'assets/mi-grado.svg')
     shutil.copyfile(ROOT/'docs/imagenes/panel.png',site/'assets/panel.png')
-    promo=('social-preview.png','planificar.png','registrar.png','retomar.png','demo.gif')
+    promo=('social-preview.png','social-preview-portada.png','planificar.png','registrar.png','retomar.png','demo.gif','vista-cuaderno.png')
     for name in promo:shutil.copyfile(ROOT/'docs/imagenes'/name,site/'assets'/name)
+    fonts=('DMSans.ttf','Lora.ttf','OFL-DM-Sans.txt','OFL-Lora.txt')
+    (site/'assets/fonts').mkdir(exist_ok=True)
+    for name in fonts:shutil.copyfile(ROOT/'web/fonts'/name,site/'assets/fonts'/name)
     shutil.copyfile(ROOT/'LICENSE',site/'LICENSE')
     shutil.copyfile(ROOT/'web/vercel.json',site/'vercel.json')
     website = out/f'Mi-grado-web-{VERSION}-piloto.zip'
-    files=[('index.html',site/'index.html'),('LICENSE',site/'LICENSE'),('vercel.json',site/'vercel.json'),('assets/mi-grado.svg',site/'assets/mi-grado.svg'),('assets/panel.png',site/'assets/panel.png')]
+    files=[('index.html',site/'index.html'),('landing.css',site/'landing.css'),('LICENSE',site/'LICENSE'),('vercel.json',site/'vercel.json'),('assets/mi-grado.svg',site/'assets/mi-grado.svg'),('assets/panel.png',site/'assets/panel.png')]
     files += [('assets/'+name,site/'assets'/name) for name in promo]
+    files += [('assets/fonts/'+name,site/'assets/fonts'/name) for name in fonts]
     files += [('app/'+name,app/name) for name in WEB_FILES+('icon-192.png','icon-512.png','mi-grado-obsidian-ia.zip','mi-grado-obsidian-ia-plugin.zip')]
     archive(website,files)
     return {'site':str(site),'web':str(website),'skill':str(skill_zip),'plugin':str(plugin_zip),'published':False}

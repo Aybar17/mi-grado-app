@@ -111,6 +111,11 @@
 !/tests/test_backups.py
 !/web/
 !/web/index.html
+!/web/landing.css
+!/web/generar_preview.py
+!/web/fonts/
+!/web/fonts/*.ttf
+!/web/fonts/*.txt
 !/web/vercel.json
 !/CONTRIBUTING.md
 !/.github/ISSUE_TEMPLATE/
@@ -150,3 +155,5 @@
 !/docs/imagenes/registrar.png
 !/docs/imagenes/retomar.png
 !/docs/imagenes/demo.gif
+!/docs/imagenes/vista-cuaderno.png
+!/docs/imagenes/social-preview-portada.png
